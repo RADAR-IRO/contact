@@ -30,21 +30,29 @@
 
 ### GPredict
 
-- [ ] Mettre à jour les données de GPredict
-- [ ] Clique droit sur le satellite -> Satellite info -> transponders puis noter la fréquence d'émission du satellite
-- [ ] Ouvrir la fenêtre "radio control"
-- [ ] Input la fréquence d'émission du satellite noté plus tôt
-- [ ] Sélectionner le bon satellite dans la liste
-- [ ] Ouvrir gqrx si ce n'est pas déjà fait
-- [ ] Activer "track" et "engage"
-    - Sidenote: s'assurer que controle de gqrx depuis gpredict est setuppé
-    - Recommendation: c'est pratique d'avoir l'enregistrement automatique (signalling AOS et LOS cochés)
+- [ ] Mettre à jour les données de GPredict (TLE et transponders)
+- Recommendation: c'est pratique d'avoir l'enregistrement automatique (signalling AOS et LOS cochés)
+
+<a href="gpredict-radio-control.png"><img src="gpredict-radio-control.png" alt="Capture d’écran de la fenêtre “Radio Control” de gpredict prête à recevoir le signal APT du satellite NOAA 15" align="right" width="350"></a>
+
+- [ ] Ouvrir la fenêtre *“Radio Control”*
+    - [ ] Sélectionner le bon satellite dans la liste sous *“Target”*
+    - [ ] Sélectionner le signal *“APT”* puis cliquer sur *“T”*
+    - [ ] S’assurer que gpredict a automatiquement réglé la bonne fréquence dans *Downlink*
+        - NOAA 15: 137.62 MHz
+        - NOAA 18: 137.9125 MHz
+        - NOAA 19: 137.1 MHz
+    - [ ] Ouvrir gqrx si ce n'est pas déjà fait
+        - Sidenote: S’assurer que contrôle de gqrx via TCP est setuppé
+    - [ ] Activer *“Track”* pour lancer la correction du décalage Doppler
+    - [ ] Activer *“Engage”* pour débuter l’envoi des commandes à gqrx
 
 ### gqrx
 
 <a href="gqrx-signal-filter.png"><img src="gqrx-signal-filter.png" alt="Capture d’écran de gqrx montrant le panneau “Receiver Options” et un signal en train d’être reçu sur la fréquence 137.915 MHz" align="right" width="350"></a>
 
 - Paramètres de démodulation *(“Receiver Options”)*
+    - [ ] Frequency: *[ajustée automatiquement par gpredict]*
     - [ ] Filter width: User (45 kHz)
     - [ ] Filter shape: Sharp
     - [ ] Mode: “WFM (mono)”
