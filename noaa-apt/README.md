@@ -1,7 +1,7 @@
 ## Planification préliminaire
 
 - [ ] S'assurer qu'il y a une bonne passe d'un satellite au dessus de Montréal
-    - Une bonne passe arrive à une heure raisonable (GPredict -> future passes)
+    - Une bonne passe arrive à une heure raisonnable (GPredict -> future passes)
     - Lors d'une bonne passe, le satellite a une élévation maximale de plus de 30 degrés au dessus de l'horizon
 - [ ] S'assurer qu'au moment de la passe, la météo à Montréal n'est pas dégueulasse
 
@@ -16,8 +16,8 @@
 
 - [ ] Ajuster la longueur des deux segments d'antennes.
     - Pour les satellites NOAA qui opèrent autour de 137 MHz, la longueur des segments devrait être de 53,4 cm.
-- [ ] Viser les segments de l'antenne au bloc.
-- [ ] Ajuster l'angle entre les segments à 120 degrés.
+- [ ] Visser les segments de l'antenne au bloc.
+- [ ] Ajuster l'angle entre les segments à 120° (ou 90 cm entre les extrémités).
 - [ ] Viser les segments de cables coaxial à l'antenne et à la radio SDR
 - [ ] Brancher la radio SDR dans le laptop
 
@@ -40,11 +40,24 @@
     - Sidenote: s'assurer que controle de gqrx depuis gpredict est setuppé
     - Recommendation: c'est pratique d'avoir l'enregistrement automatique (signalling AOS et LOS cochés)
 
-### GQRX
+### gqrx
 
-- [ ] Mode: "FM (mono)"
-- [ ] Filter shape: Sharp
-- [ ] Filter width: custom -> 45 kHz
+<a href="gqrx-signal-filter.png"><img src="gqrx-signal-filter.png" alt="Capture d’écran de gqrx montrant le panneau “Receiver Options” et un signal en train d’être reçu sur la fréquence 137.915 MHz" align="right" width="350"></a>
+
+- Paramètres de démodulation *(“Receiver Options”)*
+    - [ ] Filter width: User (45 kHz)
+    - [ ] Filter shape: Sharp
+    - [ ] Mode: “WFM (mono)”
+
+<br clear="both">
+
+<a href="gqrx-signal-input.png"><img src="gqrx-signal-input.png" alt="Capture d’écran de gqrx montrant le panneau “Input Options” et un signal en train d’être reçu sur la fréquence 137.915 MHz" align="right" width="350"></a>
+
+- Paramètres de réception *(“Input Controls”)*
+    - [ ] Ajuster LNA pour séparer le bruit et le signal
+        - Commencer avec la valeur la plus faible, puis augmenter tant que ça améliore le signal
+
+<br clear="both">
 
 ## Quoi faire dehors
 
